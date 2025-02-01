@@ -60,6 +60,27 @@ body {
                       -0.025em -0.05em 0 rgba(0,255,0,0.75); }
 }
 
+.data-stream-overlay {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 200%;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent,
+    rgba(147, 51, 234, 0.1) 2px,
+    transparent 3px
+  );
+  animation: data-stream 2s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes data-stream {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
 .rain-animation {
   position: absolute;
   width: 100%;

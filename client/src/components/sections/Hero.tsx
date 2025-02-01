@@ -2,28 +2,25 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import DashboardDisplay from "@/components/DashboardDisplay";
 import { FaDiscord } from "react-icons/fa";
+import Navbar from "@/components/Navbar";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(https://images.unsplash.com/photo-1634439480860-6d9583d0d71c)`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+    <section className="relative min-h-screen bg-background overflow-hidden">
+      <Navbar />
+
       {/* Animated Data Stream Effect */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="rain-animation" />
       </div>
 
-      <div className="container mx-auto px-4 z-10">
+      <div className="container mx-auto px-4 pt-24">
         <div className="flex flex-col items-center gap-16">
           <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center"
+            className="text-center mt-16"
           >
             <motion.h1 
               className="text-5xl md:text-7xl font-bold mb-6 cyberpunk-gradient-text glitch-text"
@@ -56,8 +53,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full max-w-4xl"
+            className="w-full max-w-4xl relative"
           >
+            {/* Data Stream Overlay */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <div className="w-full h-full bg-gradient-to-b from-purple-500/10 to-transparent" />
+              <div className="data-stream-overlay" />
+            </div>
+
             <DashboardDisplay />
           </motion.div>
         </div>
