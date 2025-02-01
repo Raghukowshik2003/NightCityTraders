@@ -3,6 +3,46 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+// Define the alien silhouettes for each tier
+const aliens = {
+  runners: (
+    <svg className="w-32 h-32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 10C30 10 20 30 20 50C20 70 30 90 50 90C70 90 80 70 80 50C80 30 70 10 50 10Z" 
+            fill="url(#runner-gradient)" className="hologram-pulse" />
+      <defs>
+        <linearGradient id="runner-gradient" x1="0" y1="0" x2="100" y2="100">
+          <stop offset="0%" stopColor="#60A5FA" />
+          <stop offset="100%" stopColor="#3B82F6" />
+        </linearGradient>
+      </defs>
+    </svg>
+  ),
+  seekers: (
+    <svg className="w-32 h-32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 80L50 20L80 80L50 60L20 80Z" 
+            fill="url(#seeker-gradient)" className="hologram-pulse" />
+      <defs>
+        <linearGradient id="seeker-gradient" x1="0" y1="0" x2="100" y2="100">
+          <stop offset="0%" stopColor="#C084FC" />
+          <stop offset="100%" stopColor="#A855F7" />
+        </linearGradient>
+      </defs>
+    </svg>
+  ),
+  hunters: (
+    <svg className="w-32 h-32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 50C10 30 30 10 50 10C70 10 90 30 90 50C90 70 70 90 50 90C30 90 10 70 10 50Z" 
+            fill="url(#hunter-gradient)" className="hologram-pulse" />
+      <defs>
+        <linearGradient id="hunter-gradient" x1="0" y1="0" x2="100" y2="100">
+          <stop offset="0%" stopColor="#4ADE80" />
+          <stop offset="100%" stopColor="#22C55E" />
+        </linearGradient>
+      </defs>
+    </svg>
+  )
+};
+
 const tiers = [
   {
     id: 'runners',
@@ -57,7 +97,7 @@ export default function UltimatrixMembership() {
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       <div className="circuit-board-bg absolute inset-0 opacity-20" />
-      
+
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -70,6 +110,18 @@ export default function UltimatrixMembership() {
         </motion.h2>
 
         <div className="relative max-w-4xl mx-auto">
+          {/* Alien Hologram */}
+          {isActivated && currentTier >= 0 && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full alien-hologram z-10"
+            >
+              {aliens[tiers[currentTier].id as keyof typeof aliens]}
+            </motion.div>
+          )}
+
           {/* Central Ultimatrix Button */}
           {!isActivated && (
             <motion.div
@@ -118,7 +170,7 @@ export default function UltimatrixMembership() {
                                 transition-all duration-500">
                       <div className="absolute inset-0 bg-gradient-to-br from-green-500/10
                                   to-transparent opacity-50 rounded-lg" />
-                      
+
                       <motion.div
                         className="relative z-10 text-center space-y-6 tier-float"
                         initial={{ y: 20, opacity: 0 }}

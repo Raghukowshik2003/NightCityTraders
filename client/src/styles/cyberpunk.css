@@ -123,6 +123,46 @@ body {
   animation: neonPulse 2s infinite;
 }
 
+/* Enhanced Ultimatrix-specific animations */
+@keyframes alienHover {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1) rotate(5deg);
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: brightness(1);
+  }
+}
+
+@keyframes hologramPulse {
+  0% {
+    opacity: 0.8;
+    filter: brightness(1) blur(0px);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.5) blur(1px);
+  }
+  100% {
+    opacity: 0.8;
+    filter: brightness(1) blur(0px);
+  }
+}
+
+.alien-hologram {
+  animation: alienHover 4s ease-in-out infinite;
+}
+
+.hologram-pulse {
+  animation: hologramPulse 2s ease-in-out infinite;
+}
+
+
 /* Ultimatrix-specific animations */
 @keyframes hologramReveal {
   0% { 
