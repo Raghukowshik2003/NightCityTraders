@@ -4,6 +4,7 @@
   --neon-blue: rgba(62, 184, 255, 0.8);
   --neon-purple: rgba(147, 51, 234, 0.8);
   --neon-orange: rgba(255, 136, 0, 0.8);
+  --ultimatrix-green: rgba(34, 197, 94, 0.8);
 }
 
 body {
@@ -120,4 +121,91 @@ body {
 
 .neon-pulse {
   animation: neonPulse 2s infinite;
+}
+
+/* Ultimatrix-specific animations */
+@keyframes hologramReveal {
+  0% { 
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    filter: blur(10px);
+  }
+  50% {
+    filter: blur(5px);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes circuitBoard {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes tierFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.hologram-reveal {
+  animation: hologramReveal 0.8s ease-out forwards;
+}
+
+.circuit-board-bg {
+  background-image: 
+    linear-gradient(to right, rgba(34, 197, 94, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34, 197, 94, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: circuitBoard 20s linear infinite;
+}
+
+.tier-float {
+  animation: tierFloat 3s ease-in-out infinite;
+}
+
+/* Ultimatrix glow effects */
+.ultimatrix-glow {
+  box-shadow: 0 0 20px var(--ultimatrix-green);
+  transition: box-shadow 0.3s ease;
+}
+
+.ultimatrix-glow:hover {
+  box-shadow: 0 0 40px var(--ultimatrix-green);
+}
+
+/* Teleportation effect */
+@keyframes teleport {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+    filter: brightness(2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+.teleport-transition {
+  animation: teleport 0.5s ease-in-out;
 }
