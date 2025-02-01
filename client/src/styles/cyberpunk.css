@@ -100,3 +100,24 @@ body {
   box-shadow: 0 0 20px var(--neon-purple);
   transition: box-shadow 0.3s ease;
 }
+
+/* Feature Card 3D Transform */
+.feature-card-transform {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.feature-card-transform:hover {
+  transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Neon Pulse Animation */
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-purple); }
+  50% { box-shadow: 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple); }
+  100% { box-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-purple); }
+}
+
+.neon-pulse {
+  animation: neonPulse 2s infinite;
+}
