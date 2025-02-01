@@ -1,7 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import Features from "@/components/sections/Features";
 import Membership from "@/components/sections/Membership";
-import DiscordSection from "@/components/sections/DiscordSection";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
       <Hero />
       <Features />
       <Membership />
-      <DiscordSection />
     </motion.div>
   );
 }
