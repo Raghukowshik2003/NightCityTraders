@@ -1,6 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import Features from "@/components/sections/Features";
-import UltimatrixMembership from "@/components/sections/UltimatrixMembership";
+import Membership from "@/components/sections/Membership";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
     >
       <Hero />
       <Features />
-      <UltimatrixMembership />
+      <Membership />
     </motion.div>
   );
 }
