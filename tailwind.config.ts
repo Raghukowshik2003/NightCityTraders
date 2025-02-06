@@ -64,19 +64,19 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "neon-border": {
+          "0%": {
+            boxShadow: "0 0 5px rgba(147, 51, 234, 0.8), 0 0 10px rgba(147, 51, 234, 0.6), 0 0 15px rgba(147, 51, 234, 0.4)",
           },
-          to: {
-            height: "0",
+          "100%": {
+            boxShadow: "0 0 10px rgba(147, 51, 234, 1), 0 0 20px rgba(147, 51, 234, 0.8), 0 0 30px rgba(147, 51, 234, 0.6)",
           },
         },
       },

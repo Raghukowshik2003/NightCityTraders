@@ -7,12 +7,16 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 export default defineConfig({
   plugins: [react(), runtimeErrorOverlay(), themePlugin()],
   resolve: {
     alias: {
+      // Ensure this alias works correctly for assets folder too
       "@db": path.resolve(__dirname, "db"),
       "@": path.resolve(__dirname, "client", "src"),
+      // Optionally: add an explicit alias for assets if needed
+      "@assets": path.resolve(__dirname, "client", "src", "assets"),
     },
   },
   root: path.resolve(__dirname, "client"),

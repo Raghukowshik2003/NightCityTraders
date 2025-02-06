@@ -1,7 +1,8 @@
+@import './styles/cyberpunk.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './styles/cyberpunk.css';
+
 
 @layer base {
   * {
@@ -10,5 +11,20 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@keyframes neon-border {
+  0% {
+    box-shadow: 0 0 5px rgba(147, 51, 234, 0.6), 0 0 10px rgba(147, 51, 234, 0.4);
+    border-color: rgba(147, 51, 234, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 1), 0 0 40px rgba(147, 51, 234, 0.6);
+    border-color: rgba(147, 51, 234, 1);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(147, 51, 234, 0.6), 0 0 10px rgba(147, 51, 234, 0.4);
+    border-color: rgba(147, 51, 234, 0.8);
   }
 }

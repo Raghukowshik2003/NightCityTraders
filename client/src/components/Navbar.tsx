@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { FaDiscord } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Logo from "@/assets/logo.png"; // Adjust path to your logo image
 
 export default function Navbar() {
   const navItems = [
@@ -21,23 +22,15 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500 cursor-pointer"
-            >
-              NightCityAlpha
-            </motion.div>
-          </Link>
+          <div>
+            <img src={Logo} alt="Logos" className="h-8" />
+          </div>
 
           {/* Navigation Items */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="flex items-center space-x-8 ml-auto">
             {navItems.map((item) => (
               <Link key={item.label} href={item.href}>
-                <motion.a
-                  whileHover={{ scale: 1.1 }}
-                  className="text-gray-300 hover:text-white transition-colors cursor-pointer"
-                >
+                <motion.a whileHover={{ scale: 1.1 }} className="text-gray-300 hover:text-white transition-colors cursor-pointer">
                   {item.label}
                 </motion.a>
               </Link>
@@ -48,12 +41,11 @@ export default function Navbar() {
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            className="ml-8"  // Added margin-left to move the button to the right
           >
-            <Button 
-              className="bg-purple-600 hover:bg-purple-700 text-white
-                        shadow-[0_0_10px_rgba(147,51,234,0.3)] hover:shadow-[0_0_20px_rgba(147,51,234,0.6)]
-                        transition-all duration-300"
-              onClick={() => window.open('https://discord.gg/nightcityalpha', '_blank')}
+            <Button
+              className="bg-purple-600 hover:bg-purple-700 text-white shadow-[0_0_10px_rgba(147,51,234,0.3)] hover:shadow-[0_0_20px_rgba(147,51,234,0.6)] transition-all duration-300"
+              onClick={() => window.open("https://discord.gg/nightcityalpha", "_blank")}
             >
               <FaDiscord className="mr-2 h-4 w-4" />
               Join Discord

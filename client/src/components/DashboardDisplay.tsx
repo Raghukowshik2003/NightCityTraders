@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import CryptoTicker from "./CryptoTicker";
+import { useEffect, useRef } from "react";
+
 
 const signals = [
   { pair: "PEPE/USD", signal: "LONG", entry: "0.00000789", target: "0.0000150" },
