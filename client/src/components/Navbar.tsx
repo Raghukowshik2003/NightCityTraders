@@ -1,58 +1,83 @@
-import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
+import React, { useState } from "react";
+import Logo from "@/assets/nightcity.jpg"; // Ensure this path is correct
 import { FaDiscord } from "react-icons/fa";
-import { motion } from "framer-motion";
-import Logo from "@/assets/logo.png"; // Adjust path to your logo image
 
 export default function Navbar() {
+  const [cursorPos, setCursorPos] = useState({ x: 50, y: 50 });
+  const [isCornerHovered, setIsCornerHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setCursorPos({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
+    setIsCornerHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsCornerHovered(false);
+  };
+
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Features", href: "/#features" },
-    { label: "Pricing", href: "/#pricing" },
-    { label: "Reviews", href: "/#reviews" },
-    { label: "Buy", href: "/#buy" },
+    { label: "Home", href: "#home" },
+    { label: "Features", href: "#features" },
+    { label: "About Server", href: "#aboutserver" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "About Me", href: "#aboutme" },
   ];
 
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="fixed top-0 left-0 right-0 bg-black/30 backdrop-blur-sm z-50 border-b border-purple-500/20"
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div>
-            <img src={Logo} alt="Logos" className="h-8" />
-          </div>
+    <nav className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 p-2 sticky top-0 z-50">
+      <div className="container mx-auto flex justify-between items-center">
+        {/* Logo with rounded and glowing effect */}
+        <div className="flex items-center">
+          <img
+            src={Logo}
+            alt="Logo"
+            className="w-16 h-16 rounded-full animate-pulse [animation-duration:3s] shadow-[0_0_15px_5px_rgba(255,102,0,0.8)]"
+          />
+        </div>
 
-          {/* Navigation Items */}
-          <div className="flex items-center space-x-8 ml-auto">
-            {navItems.map((item) => (
-              <Link key={item.label} href={item.href}>
-                <motion.a whileHover={{ scale: 1.1 }} className="text-gray-300 hover:text-white transition-colors cursor-pointer">
-                  {item.label}
-                </motion.a>
-              </Link>
-            ))}
-          </div>
-
-          {/* Join Discord Button */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="ml-8"  // Added margin-left to move the button to the right
-          >
-            <Button
-              className="bg-purple-600 hover:bg-purple-700 text-white shadow-[0_0_10px_rgba(147,51,234,0.3)] hover:shadow-[0_0_20px_rgba(147,51,234,0.6)] transition-all duration-300"
-              onClick={() => window.open("https://discord.gg/nightcityalpha", "_blank")}
+        {/* Navigation items and Discord button */}
+        <div className="flex items-center space-x-4">
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="text-gray-300 hover:text-white transition-colors duration-300 font-semibold px-3 py-2 rounded-full border border-transparent hover:border-yellow-300"
             >
-              <FaDiscord className="mr-2 h-4 w-4" />
-              Join Discord
-            </Button>
-          </motion.div>
+              {item.label}
+            </a>
+          ))}
+
+          {/* Discord Button */}
+          <button
+            className="bg-white text-brown font-bold rounded-full hover:shadow-[0_0_20px_rgba(255,102,0,0.8)] transition-all duration-300 relative overflow-hidden group flex items-center justify-center"
+            style={{ padding: "10px 20px", fontSize: "16px" }} // Adjust padding and font size
+            onClick={() => window.open("https://discord.gg/nightcityalpha", "_blank")}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+          >
+            <span
+              className="absolute inset-0 bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 opacity-30 group-hover:opacity-20 transition-opacity"
+              style={{
+                background: `radial-gradient(circle at ${cursorPos.x}% ${cursorPos.y}%, rgba(255,102,0,0) 10%, rgba(255,102,0,0.8) 50%)`,
+              }}
+            />
+            {isCornerHovered && (
+              <span
+                className="absolute inset-0 bg-transparent"
+                style={{
+                  boxShadow: `0 0 20px 10px radial-gradient(circle at ${cursorPos.x}% ${cursorPos.y}%, rgba(255,102,0,1) 10%, rgba(255,102,0,0) 60%)`,
+                }}
+              />
+            )}
+            <FaDiscord className="mr-2 h-5 w-5" />
+            Join Discord
+          </button>
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 }

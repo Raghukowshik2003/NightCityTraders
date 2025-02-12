@@ -32,7 +32,6 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen bg-black text-foreground overflow-hidden flex items-center justify-center">
-      <Navbar />
       <div className="container mx-auto px-4">
         <motion.div
           className="min-h-screen bg-black text-foreground overflow-hidden"
@@ -40,24 +39,24 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="container mx-auto px-4 pt-24">
+          <div className="container mx-auto px-4 pt-12"> {/* Reduced top padding */}
             <div className="flex flex-col items-center gap-16">
               <motion.div
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-left mt-16"
+                className="text-left mt-8" 
               >
                 <motion.div
                   className="overflow-hidden flex justify-center items-center"
                   style={{
-                    width: "800px", // Container width
-                    height: "150px", // Adjust container height to match video
-                     // Optional: rounded corners for the border
-                    transform: "translateX(100px)",
+                    width: "1000px", // Increased container width
+                    height: "200px", // Increased container height
+                    // Optional: rounded corners for the border
+                    transform: "translateX(20px)",
                     paddingTop: "120px", // Adjust top padding
                     paddingBottom: "70px", // Adjust bottom padding
-                  }} 
+                  }}
                 >
                   <motion.video
                     src="/hero_anim.mp4"
@@ -67,10 +66,10 @@ export default function Hero() {
                     playsInline
                     className="rounded-lg shadow-lg"
                     style={{
-                      width: "1000px", // Larger width to allow cropping
-                      height: "450px",
+                      width: "1200px", // Increased width
+                      height: "540px", // Increased height
                       transform: "translateX(-50px)", // Move it to the left by 50px
-                      
+
                       objectFit: "cover", // Ensure video covers the container
                     }}
                     initial={{ opacity: 0, scale: 1.2 }}
@@ -112,7 +111,7 @@ export default function Hero() {
                   </Button>
                 </motion.div>
                 {/* Add a div for displaying a video */}
-                <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24" 
+                <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-10"
                 style={{ position: "relative", top: "10px" }}>
                  <div className="relative z-10 p-0.5 rounded-2xl bg-conic-gradient">
                   <div className="relative bg-n-8 rounded-2xl overflow-hidden">
@@ -122,6 +121,11 @@ export default function Hero() {
                       autoPlay
                       loop
                       muted
+                      style={{
+                        width: "1300px", // Increased width
+                        height: "600px", // Increased height
+                        marginTop: "-1rem", // Adjust top margin
+                      }}
                     />
                   </div>
                  </div>

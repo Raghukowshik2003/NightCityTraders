@@ -1,5 +1,5 @@
 {
-  "include": ["client/src/**/*", "db/**/*", "server/**/*","src/**/*", "client/types/page-flip.d.ts"],
+  "include": ["client/src/**/*", "db/**/*", "server/**/*", "src/**/*", "client/types/page-flip.d.ts"],
   "exclude": ["node_modules", "build", "dist", "**/*.test.ts"],
   "compilerOptions": {
     "incremental": true,
@@ -12,7 +12,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "baseUrl": ".",
     "types": ["node", "vite/client"],
     "paths": {
@@ -21,6 +21,4 @@
       "@/*": ["./client/src/*"]
     }
   }
-  
 }
-

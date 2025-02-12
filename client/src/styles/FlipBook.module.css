@@ -1,0 +1,50 @@
+.flipBook {
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    position: relative;
+    perspective: 1500px;
+  }
+  
+  .page {
+    background-color: white;
+    color: #333;
+    border-radius: 0 3px 3px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .pageCover {
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .pageContent {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .pageHeader {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .pageImage {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+  }
+  
+  .pageText {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+  }

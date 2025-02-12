@@ -11,6 +11,7 @@
     "db:push": "drizzle-kit push"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^3.9.1",
     "@jridgewell/trace-mapping": "^0.3.25",
     "@neondatabase/serverless": "^0.10.4",
@@ -68,13 +69,15 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.1",
     "react-icons": "^5.4.0",
+    "react-pageflip": "^2.0.3",
     "react-resizable-panels": "^2.1.4",
+    "react-router-dom": "^7.1.5",
     "recharts": "^2.13.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.173.0",
     "vaul": "^1.1.0",
-    "wouter": "^3.3.5",
+    "wouter": "^3.5.1",
     "ws": "^8.18.0",
     "zod": "^3.23.8",
     "zod-validation-error": "^3.4.0"

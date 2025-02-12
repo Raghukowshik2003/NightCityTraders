@@ -1,0 +1,84 @@
+.section {
+  background-color: #000000; /* Same color as in the photo */
+  padding: 50px; /* Adjust padding as needed */
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  transform: translateY(20%);
+  color: white; /* Adjust color as needed */
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 70px; /* Adjust font size as needed */
+}
+
+.videoContainer {
+  background-color: #000000; /* Background color for the video container */
+  width: 1200px;
+  height: 700px;
+  padding: 2px;
+  box-shadow: 0 0 40px rgba(181, 2, 236, 1.9);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* To allow absolute positioning of nav buttons */
+}
+
+.videoPlayer {
+  width: 1400px;
+  height: 100%;
+  border-radius: 10px;
+  position: relative; /* Ensure the video scales within the container */
+}
+
+.videoPlayer video {
+  width: 1400px;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the container */
+  border-radius: 10px;
+}
+
+.navButton {
+  background-color: rgb(237, 165, 11); /* White background for the buttons */
+  border: none; /* Remove border */
+  border-radius: 50%; /* Make buttons circular */
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  position: absolute; /* Position buttons absolutely within the container */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Fine-tune vertical centering */
+  display: flex; /* Ensure content is centered */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  padding: 10px; /* Add padding for spacing */
+}
+
+.navButton img {
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+  transition: transform 0.3s;
+}
+
+.navButton:hover {
+  background-color: #f0f0f0; /* Lighter background on hover */
+}
+
+.navButton:hover img {
+  transform: scale(1.2); /* Scale up on hover */
+}
+
+.navButton.prev {
+  left: 10px; /* Adjust position as needed */
+}
+
+.navButton.next {
+  right: 10px; /* Adjust position as needed */
+}
