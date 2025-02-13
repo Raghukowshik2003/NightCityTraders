@@ -4,8 +4,6 @@
   "type": "module",
   "license": "MIT",
   "homepage": "https://Raghukowshik2003.github.io/NightCityTraders",
-  
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -118,6 +116,4 @@
   "optionalDependencies": {
     "bufferutil": "^4.0.8"
   }
-
-  
 }
