@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styles from './BookUI.module.css';
+import leftnav from '@assets/leftnav.png';
+import rightnav from '@assets/rightnav.png';
 
 interface VideoChannelProps {
   videoSrc: string;
@@ -45,13 +47,13 @@ const BookUI: React.FC<BookUIProps> = ({ videoChannels }) => {
           className={`${styles.navButton} ${styles.prev}`}
           onClick={() => handleNav(-1)}
         >
-          <img src="/leftnav.png" alt="Previous" />
+          <img src={leftnav} alt="Previous" />
         </button>
         <button
           className={`${styles.navButton} ${styles.next}`}
           onClick={() => handleNav(1)}
         >
-          <img src="/rightnav.png" alt="Next" />
+          <img src={rightnav} alt="Next" />
         </button>
       </div>
     </div>

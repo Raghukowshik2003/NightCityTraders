@@ -4,6 +4,8 @@ import DashboardDisplay from "@/components/DashboardDisplay";
 import { FaDiscord } from "react-icons/fa";
 import Navbar from "@/components/Navbar";
 import { useRef, useState } from "react";
+import hero_anim from '@assets/hero_anim.mp4';
+import videooutline from '@assets/videooutline.mp4';
 
 export default function Hero() {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -59,7 +61,7 @@ export default function Hero() {
                   }}
                 >
                   <motion.video
-                    src="/hero_anim.mp4"
+                    src={hero_anim}
                     autoPlay
                     loop
                     muted
@@ -116,7 +118,7 @@ export default function Hero() {
                  <div className="relative z-10 p-0.5 rounded-2xl bg-conic-gradient">
                   <div className="relative bg-n-8 rounded-2xl overflow-hidden">
                     <video
-                      src="/videooutline.mp4"
+                      src={videooutline}
                       className="w-full h-full object-fill"
                       autoPlay
                       loop

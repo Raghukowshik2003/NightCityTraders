@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import styles from "../../styles/AboutMe.module.css";
 import emailjs from "@emailjs/browser"; // Install this package: npm install @emailjs/browser
+import Aaboutme from '@assets/Aaboutme.png';
+import aboutG from '@assets/aboutG.mp4';
+import Atwitter from '@assets/Atwitter.png';
+import Atelegram from '@assets/Atelegram.png';
+import Ayoutube from '@assets/Ayoutube.png';
+import Atwitch from '@assets/Atwitch.png';
+import Atiktok from '@assets/Atiktok.png';
 
 const AboutMe = () => {
   const [expandedQuestions, setExpandedQuestions] = useState({
@@ -48,7 +55,7 @@ const AboutMe = () => {
     <section className={styles.aboutSection}>
       {/* Background Video */}
       <video autoPlay muted loop className={styles.backgroundVideo}>
-        <source src="/aboutG.mp4" type="video/mp4" />
+        <source src={aboutG} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -58,23 +65,23 @@ const AboutMe = () => {
       {/* Profile Image and Social Media Icons */}
       <div className={styles.profileAndIcons}>
         <div className={styles.profileImageContainer}>
-          <img src="/Aaboutme.png" alt="Profile" className={styles.profileImage} />
+          <img src={Aaboutme} alt="Profile" className={styles.profileImage} />
         </div>
         <div className={styles.rightIcons}>
           <a href="https://x.com/treysocial" target="_blank" rel="noopener noreferrer">
-            <img src="/Atwitter.png" alt="Twitter" className={styles.icon} />
+            <img src={Atwitter} alt="Twitter" className={styles.icon} />
           </a>
           <a href="https://t.me/treystele" target="_blank" rel="noopener noreferrer">
-            <img src="/Atelegram.png" alt="Telegram" className={styles.icon} />
+            <img src={Atelegram} alt="Telegram" className={styles.icon} />
           </a>
           <a href="https://www.youtube.com/@treyxd" target="_blank" rel="noopener noreferrer">
-            <img src="/Ayoutube.png" alt="Youtube" className={styles.icon} />
+            <img src={Ayoutube} alt="Youtube" className={styles.icon} />
           </a>
           <a href="https://www.twitch.tv/kingtreytv" target="_blank" rel="noopener noreferrer">
-            <img src="/Atwitch.png" alt="Twitch" className={styles.icon} />
+            <img src={Atwitch} alt="Twitch" className={styles.icon} />
           </a>
           <a href="https://www.tiktok.com/@trey" target="_blank" rel="noopener noreferrer">
-            <img src="/Atiktok.png" alt="Tiktok" className={styles.icon} />
+            <img src={Atiktok} alt="Tiktok" className={styles.icon} />
           </a>
         </div>
       </div>

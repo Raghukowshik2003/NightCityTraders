@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Wallet, Twitter, Bot, Wrench, BookOpen, Mic } from "lucide-react";
+import gradientbg from '@assets/gradientbg.mp4';
 
 const features = [
   {
@@ -41,7 +42,7 @@ export default function Features() {
     <section className="py-32 bg-background relative overflow-hidden">
       {/* Data Rain Animation */}
       <video
-        src="/gradientbg.mp4" // Replace with the actual path to your video
+        src={gradientbg} // Replace with the actual path to your video
         autoPlay
         loop
         muted

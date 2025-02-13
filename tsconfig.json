@@ -1,10 +1,19 @@
 {
-  "include": ["client/src/**/*", "db/**/*", "server/**/*", "src/**/*", "client/types/page-flip.d.ts"],
+  "include": [
+    "client/src/**/*",
+    "db/**/*",
+    "server/**/*",
+    "src/**/*",
+    "client/types/page-flip.d.ts",
+    "client/types/vite-plugin-copy.d.ts"
+  ],
   "exclude": ["node_modules", "build", "dist", "**/*.test.ts"],
   "compilerOptions": {
     "incremental": true,
     "tsBuildInfoFile": "./node_modules/typescript/tsbuildinfo",
-    "noEmit": true,
+    "noEmit": true, // Set to true to avoid generating output files
+    "declaration": true, // Ensure declaration files are generated
+    "emitDeclarationOnly": true, // Emit only declaration files
     "module": "ESNext",
     "strict": true,
     "lib": ["esnext", "dom", "dom.iterable"],
@@ -19,6 +28,9 @@
       "@db": ["./db/index.ts"],
       "@db/*": ["./db/*"],
       "@/*": ["./client/src/*"]
-    }
+    },
+    "outDir": "./dist", // Specify the output directory for compiled files
+    "rootDir": ".", // Root directory of input files
+    "target": "ES2020" // Ensure compatibility with modern Node.js versions
   }
 }

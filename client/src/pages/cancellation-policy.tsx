@@ -1,18 +1,20 @@
 import React from "react";
 import styles from "../styles/Policy.module.css";
+import aboutG from '@assets/aboutG.mp4';
+import cancelp from '@assets/cancelp.jpg';
 
 const CancellationPolicy = () => {
   return (
     <div className={styles.policyContainer}>
       {/* Background Video */}
       <video autoPlay muted loop className={styles.backgroundVideo}>
-        <source src="/aboutG.mp4" type="video/mp4" />
+        <source src={aboutG} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
       {/* Photo Section */}
       <img
-        src="/cancelp.jpg" // Replace with your image path
+        src={cancelp} // Replace with your image path
         alt="Policy Illustration"
         className={styles.policyImage}
       />

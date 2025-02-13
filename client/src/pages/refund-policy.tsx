@@ -1,22 +1,24 @@
 import React from "react";
 import styles from "../styles/Policy.module.css";
+import aboutG from '@assets/aboutG.mp4';
+import refundp from '@assets/refundp.png';
+
 
 const RefundPolicy = () => {
   return (
     <div className={styles.policyContainer}>
       {/* Background Video */}
       <video autoPlay muted loop className={styles.backgroundVideo}>
-        <source src="/aboutG.mp4" type="video/mp4" />
+        <source src={aboutG} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
       {/* Photo Section */}
       <img
-        src="/refundp.png" // Replace with your image path
+        src={refundp} // Replace with your image path
         alt="Policy Illustration"
         className={styles.policyImage}
       />
-
       {/* Content Section */}
       <div className={styles.policyContent}>
         <h1>Refund Policy</h1>
